@@ -40,21 +40,4 @@ class MockTask(private val delayInSeconds: Int) : ITask {
         }
 
     }
-
-    companion object {
-
-        /**
-         * Creates a task instance which finish its work immediately.
-         *
-         * @return task
-         */
-        fun notDelayedTask() = MockTask(0)
-
-        /**
-         * Creates a task instance which finish its work after 5 seconds.
-         *
-         * @return task
-         */
-        fun fiveSecondsDelayedTask() = MockTask(5)
-    }
 }

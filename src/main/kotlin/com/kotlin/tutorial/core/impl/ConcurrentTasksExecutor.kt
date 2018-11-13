@@ -34,9 +34,10 @@ class ConcurrentTasksExecutor(private val numberOfConcurrentThreads: Int, privat
      */
     private val asConcurrentTasks: List<Completable>
         get() {
-            val scheduler = createScheduler()
 
             if (tasks!=null) {
+
+                val scheduler = createScheduler()
 
                 return tasks.stream()
                         .filter { task -> task != null }
