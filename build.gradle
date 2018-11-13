@@ -37,6 +37,9 @@ dependencies {
     implementation "ch.qos.logback:logback-access:${libs.logback}"
 
     implementation "org.springframework.boot:spring-boot-starter-web:${libs.spring_boot}"
+    implementation "org.springframework.boot:spring-boot-starter-data-redis:${libs.spring_boot}"
+    implementation 'org.apache.commons:commons-pool2:2.6.0'
+    implementation 'com.alibaba:fastjson:1.2.51'
 }
 
 compileKotlin {
