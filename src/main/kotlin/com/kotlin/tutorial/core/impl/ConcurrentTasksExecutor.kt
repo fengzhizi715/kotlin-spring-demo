@@ -64,6 +64,7 @@ class ConcurrentTasksExecutor(private val numberOfConcurrentThreads: Int, privat
      * If one of the tasks failed the the exception will be rethrown so that it can be handled by mechanism that calls this method.
      */
     override fun execute() {
+
         if (isTasksCollectionEmpty) {
             log.warn("There are no tasks to be executed.")
             return

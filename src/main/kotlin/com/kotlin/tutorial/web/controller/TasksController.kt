@@ -19,6 +19,7 @@ class TasksController {
 
     @GetMapping("/sequential")
     fun sequential(@RequestParam("task") taskDelaysInSeconds: IntArray): ApiResponseDTO {
+
         val watch = StopWatch()
         watch.start()
 
@@ -36,6 +37,7 @@ class TasksController {
 
     @GetMapping("/concurrent")
     fun concurrent(@RequestParam("task") taskDelaysInSeconds: IntArray, @RequestParam("threads") numberOfConcurrentThreads: Int): ApiResponseDTO {
+
         val watch = StopWatch()
         watch.start()
 
