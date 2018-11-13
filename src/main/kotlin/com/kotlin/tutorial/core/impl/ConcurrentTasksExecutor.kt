@@ -36,16 +36,22 @@ class ConcurrentTasksExecutor(private val numberOfConcurrentThreads: Int, privat
         get() {
             val scheduler = createScheduler()
 
-            return tasks!!.stream()
-                    .filter { task -> task != null }
-                    .map { task ->
-                        Completable
-                                .fromAction {
-                                    task.execute()
-                                }
-                                .subscribeOn(scheduler)
-                    }
-                    .collect(Collectors.toList());
+            if (tasks!=null) {
+
+                return tasks.stream()
+                        .filter { task -> task != null }
+                        .map { task ->
+                            Completable
+                                    .fromAction {
+                                        task.execute()
+                                    }
+                                    .subscribeOn(scheduler)
+                        }
+                        .collect(Collectors.toList())
+            } else {
+
+                return ArrayList<Completable>()
+            }
         }
 
     /**
@@ -68,7 +74,8 @@ class ConcurrentTasksExecutor(private val numberOfConcurrentThreads: Int, privat
             log.warn("There are no tasks to be executed.")
             return
         }
-        log.debug("Executing #{} tasks concurrent way.", tasks!!.size)
+
+        log.debug("Executing #{} tasks concurrent way.", tasks?.size)
         Completable.merge(asConcurrentTasks).blockingAwait()
     }
 

@@ -36,7 +36,7 @@ class TasksController {
     }
 
     @GetMapping("/concurrent")
-    fun concurrent(@RequestParam("task") taskDelaysInSeconds: IntArray, @RequestParam("threads") numberOfConcurrentThreads: Int): ApiResponseDTO {
+    fun concurrent(@RequestParam("task") taskDelaysInSeconds: IntArray, @RequestParam("threads",required = false,defaultValue = "1") numberOfConcurrentThreads: Int): ApiResponseDTO {
 
         val watch = StopWatch()
         watch.start()
