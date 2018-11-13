@@ -55,7 +55,5 @@ class TasksController {
 
     @ExceptionHandler(IllegalArgumentException::class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    fun handleException(e: IllegalArgumentException): ErrorResponseDTO {
-        return ErrorResponseDTO(e.message)
-    }
+    fun handleException(e: IllegalArgumentException) = ErrorResponseDTO(e.message)
 }

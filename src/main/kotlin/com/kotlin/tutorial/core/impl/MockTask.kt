@@ -48,17 +48,13 @@ class MockTask(private val delayInSeconds: Int) : ITask {
          *
          * @return task
          */
-        fun notDelayedTask(): MockTask {
-            return MockTask(0)
-        }
+        fun notDelayedTask() = MockTask(0)
 
         /**
          * Creates a task instance which finish its work after 5 seconds.
          *
          * @return task
          */
-        fun fiveSecondsDelayedTask(): MockTask {
-            return MockTask(5)
-        }
+        fun fiveSecondsDelayedTask() = MockTask(5)
     }
 }

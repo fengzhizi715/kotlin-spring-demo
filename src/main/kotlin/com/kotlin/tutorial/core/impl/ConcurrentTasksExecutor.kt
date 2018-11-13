@@ -2,7 +2,6 @@ package com.kotlin.tutorial.core.impl
 
 import com.kotlin.tutorial.core.common.ITask
 import io.reactivex.Completable
-import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 import org.slf4j.LoggerFactory
 import org.springframework.util.CollectionUtils
@@ -79,7 +78,5 @@ class ConcurrentTasksExecutor(private val numberOfConcurrentThreads: Int, privat
      *
      * @return scheduler
      */
-    private fun createScheduler(): Scheduler {
-        return Schedulers.from(Executors.newFixedThreadPool(numberOfConcurrentThreads))
-    }
+    private fun createScheduler() = Schedulers.from(Executors.newFixedThreadPool(numberOfConcurrentThreads))
 }
