@@ -32,12 +32,11 @@ open class RedisConfig : CachingConfigurerSupport() {
 
         val template = RedisTemplate<Any, Any>()
 
-        //使用fastjson序列化
         val fastJsonRedisSerializer = FastJsonRedisSerializer(Any::class.java)
-        // value值的序列化采用fastJsonRedisSerializer
+
         template.valueSerializer = fastJsonRedisSerializer
         template.hashValueSerializer = fastJsonRedisSerializer
-        // key的序列化采用StringRedisSerializer
+
         template.keySerializer = StringRedisSerializer()
         template.hashKeySerializer = StringRedisSerializer()
 
