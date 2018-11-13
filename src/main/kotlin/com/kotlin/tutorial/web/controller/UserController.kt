@@ -2,6 +2,8 @@ package com.kotlin.tutorial.web.controller
 
 import com.kotlin.tutorial.user.User
 import com.kotlin.tutorial.user.service.IUserService
+import com.kotlin.tutorial.web.dto.HttpResponse
+
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -20,14 +22,16 @@ class UserController {
     lateinit var userService: IUserService
 
     @GetMapping("/getUser")
-    fun getUser(@RequestParam("name") userName: String): User {
+    fun getUser(@RequestParam("name") userName: String): HttpResponse<User> {
 
-        return userService.getUser(userName)
+        return HttpResponse(userService.getUser(userName))
     }
 
     @GetMapping("/createUser")
-    fun getUser(@RequestParam("name") userName: String,@RequestParam("password") password: String) {
+    fun getUser(@RequestParam("name") userName: String,@RequestParam("password") password: String): HttpResponse<String> {
 
         userService.createUser(userName,password)
+
+        return HttpResponse("create ${userName} success")
     }
 }
