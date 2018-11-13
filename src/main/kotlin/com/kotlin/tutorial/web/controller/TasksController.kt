@@ -1,7 +1,7 @@
 package com.kotlin.tutorial.web.controller
 
-import com.kotlin.tutorial.core.impl.ConcurrentTasksExecutor
-import com.kotlin.tutorial.core.impl.MockTask
+import com.kotlin.tutorial.task.impl.ConcurrentTasksExecutor
+import com.kotlin.tutorial.task.impl.MockTask
 import com.kotlin.tutorial.web.dto.ApiResponseDTO
 import com.kotlin.tutorial.web.dto.ErrorResponseDTO
 import org.springframework.http.HttpStatus

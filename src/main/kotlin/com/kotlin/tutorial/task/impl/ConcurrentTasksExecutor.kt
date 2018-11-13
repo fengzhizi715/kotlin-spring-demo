@@ -1,6 +1,6 @@
-package com.kotlin.tutorial.core.impl
+package com.kotlin.tutorial.task.impl
 
-import com.kotlin.tutorial.core.common.ITask
+import com.kotlin.tutorial.task.ITask
 import io.reactivex.Completable
 import io.reactivex.schedulers.Schedulers
 import org.slf4j.LoggerFactory
