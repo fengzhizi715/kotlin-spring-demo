@@ -28,7 +28,7 @@ class UserController {
     }
 
     @GetMapping("/createUser")
-    fun getUser(@RequestParam("name") userName: String,@RequestParam("password") password: String): HttpResponse<String> {
+    fun createUser(@RequestParam("name") userName: String,@RequestParam("password") password: String): HttpResponse<String> {
 
         userService.createUser(userName,password)
 
