@@ -18,7 +18,7 @@ class UserServiceImpl : IUserService {
 
     override fun getUser(username: String): User {
 
-        var user = redisTemplate.opsForValue().get("setUser")
+        var user = redisTemplate.opsForValue().get("user_${username}")
 
         if (user == null) {
 
@@ -30,7 +30,7 @@ class UserServiceImpl : IUserService {
 
     override fun createUser(username: String, password: String) {
 
-        redisTemplate.opsForValue().set("setUser", User(username, password))
+        redisTemplate.opsForValue().set("user_${username}", User(username, password))
     }
 
 }
