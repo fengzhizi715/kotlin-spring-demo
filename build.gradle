@@ -10,7 +10,11 @@ ext {
 
             logback                   : "1.2.3",
 
-            spring_boot               : "2.1.0.RELEASE"
+            spring_boot               : "2.1.0.RELEASE",
+
+            commons_pool2             : "2.6.0",
+
+            fastjson                  : "1.2.51"
     ]
 }
 
@@ -38,8 +42,8 @@ dependencies {
 
     implementation "org.springframework.boot:spring-boot-starter-web:${libs.spring_boot}"
     implementation "org.springframework.boot:spring-boot-starter-data-redis:${libs.spring_boot}"
-    implementation 'org.apache.commons:commons-pool2:2.6.0'
-    implementation 'com.alibaba:fastjson:1.2.51'
+    implementation "org.apache.commons:commons-pool2:${libs.commons_pool2}"
+    implementation "com.alibaba:fastjson:${libs.fastjson}"
 }
 
 compileKotlin {
